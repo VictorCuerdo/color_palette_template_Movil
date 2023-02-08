@@ -14,31 +14,3 @@ class ColorSelectionPage extends StatelessWidget {
       content: Text('Dialog'),
     ));
   }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Color palette app'),
-          actions: [
-            IconButton(onPressed: showDialog, icon: Icon(Icons.info_outline))
-          ],
-        ),
-        // https://colorhunt.co/
-        body: (const Center(
-          child: Text(
-              "SingleChildScrollView -> Column -> [ColorPalette, ColorPalette] "),
-        )));
-  }
-
-  // está es la función que será llamada con cada click a un ColorPalette
-  void showColor(String value) {
-    Clipboard.setData(ClipboardData(text: value));
-    Get.snackbar(
-      'Color palette',
-      'Valor copiado',
-      backgroundColor: ColorUtils.FromHex(value),
-      snackPosition: SnackPosition.BOTTOM,
-    );
-  }
-}

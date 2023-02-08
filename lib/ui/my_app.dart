@@ -18,4 +18,6 @@ class MyApp extends StatelessWidget {
       home: const ColorSelectionPage(),
     );
   }
+
+  void updatePrimarySwitchColor(String value) {}
 }
