@@ -75,5 +75,13 @@ class ColorSelectionPage extends StatelessWidget {
         ));
   }
 
-  void showColor(String value) {}
+  void showColor(String value) {
+    Clipboard.setData(ClipboardData(text: value));
+    Get.snackbar(
+      'Color palette',
+      'Valor copiado',
+      backgroundColor: ColorUtils.FromHex(value),
+      snackPosition: SnackPosition.BOTTOM,
+    );
+  }
 }
