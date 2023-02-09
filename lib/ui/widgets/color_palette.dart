@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
+
 import '../../utils/color_utils.dart';
 
 class ColorPalette extends StatelessWidget {
-  const ColorPalette({
-    Key? key,
-    // así se reciben en el constructor, por ejemplo
-    //required this.baseColor,
-  }) : super(key: key);
+  const ColorPalette(
+      {Key? key,
+      required this.baseColor,
+      required this.baseColor2,
+      required this.baseColor3,
+      required this.baseColor4,
+      required this.callback})
+      : super(key: key);
 
-  // atributos de la clase, por ejemplo
-  //final String baseColor;
-
-  // también se puede tener como un atributo un callback, necesiario ya que es un
-  // widget sin estado, por ejemplo
-  //final Function(String) callback;
+  final String baseColor;
+  final String baseColor2;
+  final String baseColor3;
+  final String baseColor4;
+  final Function(String) callback;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +24,51 @@ class ColorPalette extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       // vamos a mostrar los elementos en un row
-      child: Text(
-          'Row -> [Expanded(flex: 4,GestureDetector(Container(height: 100, color: ColorUtils.FromHex(baseColor))) )]'),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          // usamos expanded para darle diferente tamaño a cada hijo
+          Expanded(
+            flex: 4,
+            child: GestureDetector(
+              onTap: () => callback(baseColor.toString()),
+              child: Container(
+                height: 100,
+                color: ColorUtils.FromHex(baseColor),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 3,
+            child: GestureDetector(
+              onTap: () => callback(baseColor2.toString()),
+              child: Container(
+                height: 100,
+                color: ColorUtils.FromHex(baseColor2),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: GestureDetector(
+              onTap: () => callback(baseColor3.toString()),
+              child: Container(
+                height: 100,
+                color: ColorUtils.FromHex(baseColor3),
+              ),
+            ),
+          ),
+          Expanded(
+            child: GestureDetector(
+              onTap: () => callback(baseColor4.toString()),
+              child: Container(
+                height: 100,
+                color: ColorUtils.FromHex(baseColor4),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

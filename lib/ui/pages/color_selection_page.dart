@@ -17,7 +17,7 @@ class ColorSelectionPage extends StatelessWidget {
     ));
   }
 
-  @Override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
