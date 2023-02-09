@@ -24,10 +24,10 @@ class ColorSelectionPage extends StatelessWidget {
             IconButton(onPressed: showDialog, icon: Icon(Icons.info_outline))
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => print('Hello'),
-          child: const Icon(Icons.plus_one),
-        ),
+        // floatingActionButton: FloatingActionButton(
+        // onPressed: () => print('Hello'),
+        // child: const Icon(Icons.plus_one),
+        //),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(
