@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
@@ -14,3 +16,27 @@ class ColorSelectionPage extends StatelessWidget {
       content: Text('Dialog'),
     ));
   }
+
+  @Override 
+  Widget build(BuildContext context){
+    return Scaffold(appBar: AppBar(title:const Text('Color palette app'),
+    actions: [
+      IconButton(onPressed: showDialog, icon: Icon(Icons.info_outline))
+    ],),
+    floatingActionButton: FloatingActionButton(onPressed:() => print('Hello'),
+    child: const Icon(Icons.plus_one),
+    ),
+    body: SafeArea(child: SingleChildScrollView(child: Column(mainAxisAlignment: MainAxisAlignment.start, children:[
+      ColorPalette(baseColor: '222831', baseColor2: '393E46', baseColor3: '00ADB5', baseColor4: 'EEEEEE', callback: showColor),
+      ColorPalette(baseColor: '222831', baseColor2: '393E46', baseColor3: '00ADB5', baseColor4: 'EEEEEE', callback: showColor),
+      ColorPalette(baseColor: '222831', baseColor2: '393E46', baseColor3: '00ADB5', baseColor4: 'EEEEEE', callback: showColor),
+      ColorPalette(baseColor: '222831', baseColor2: '393E46', baseColor3: '00ADB5', baseColor4: 'EEEEEE', callback: showColor),
+      ColorPalette(baseColor: '222831', baseColor2: '393E46', baseColor3: '00ADB5', baseColor4: 'EEEEEE', callback: showColor),
+      ColorPalette(baseColor: '222831', baseColor2: '393E46', baseColor3: '00ADB5', baseColor4: 'EEEEEE', callback: showColor),
+    
+    
+    
+    ])),))
+  }
+
+}
